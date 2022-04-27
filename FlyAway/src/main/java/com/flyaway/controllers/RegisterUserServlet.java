@@ -38,9 +38,9 @@ public class RegisterUserServlet extends HttpServlet {
 		UserDao dao = new UserDaoImpl();
 		boolean isUserRegistered = dao.registerUser(user);
 		if(isUserRegistered) {
-			response.sendRedirect("registersuccess.html");
+			response.sendRedirect("html/registersuccess.html");
 		} else {
-			response.sendRedirect("registerfailure.html");
+			response.sendRedirect("html/registerfailure.html");
 		}
 	}
 

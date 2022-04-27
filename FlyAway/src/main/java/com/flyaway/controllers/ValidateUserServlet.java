@@ -35,9 +35,9 @@ public class ValidateUserServlet extends HttpServlet {
 		UserDao dao = new UserDaoImpl();
 		boolean isUserValid = dao.validateUser(user);
 		if(isUserValid)
-			response.sendRedirect("airline.html");
+			response.sendRedirect("html/admin.html");
 		else
-			response.sendRedirect("invaliduser.html");
+			response.sendRedirect("html/invaliduser.html");
 	}
 
 	/**

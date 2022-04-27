@@ -1,6 +1,8 @@
-package com.flyaway.controllers.airline;
+package com.flyaway.controllers.airlines;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +25,9 @@ public class AddAirlineServlet extends HttpServlet {
 		Integer id = dao.addAirline(airline);
 		if(id > 0) {
 			System.out.println("Airline added. id is : " + id);
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('Airline Updated Suceessfully');</script>");
+			response.sendRedirect("GetAllAirlinesServlet");
 		} else {
 			System.out.println("Airline not added");
 		}

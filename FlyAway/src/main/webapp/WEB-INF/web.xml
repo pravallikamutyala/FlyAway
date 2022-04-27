@@ -33,12 +33,170 @@
     <description></description>
     <display-name>DeleteAirline</display-name>
     <servlet-name>DeleteAirline</servlet-name>
-    <servlet-class>com.flyaway.controllers.DeleteAirline</servlet-class>
+    <servlet-class>com.flyaway.controllers.airlines.DeleteAirline</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteAirline</servlet-name>
     <url-pattern>/DeleteAirline</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddAirline</display-name>
+    <servlet-name>AddAirline</servlet-name>
+    <servlet-class>com.flyaway.controllers.airlines.AddAirlineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAirline</servlet-name>
+    <url-pattern>/AddAirlineServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateAirline</display-name>
+    <servlet-name>UpdateAirline</servlet-name>
+    <servlet-class>com.flyaway.controllers.airlines.UpdateAirlineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateAirline</servlet-name>
+    <url-pattern>/UpdateAirlineServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllAirlinesServlet</display-name>
+    <servlet-name>GetAllAirlinesServlet</servlet-name>
+    <servlet-class>com.flyaway.controllers.airlines.GetAllAirlinesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllAirlinesServlet</servlet-name>
+    <url-pattern>/GetAllAirlinesServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>DeleteRoute</display-name>
+    <servlet-name>DeleteRoute</servlet-name>
+    <servlet-class>com.flyaway.controllers.routes.DeleteRoute</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteRoute</servlet-name>
+    <url-pattern>/DeleteRoute</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddRoute</display-name>
+    <servlet-name>AddRoute</servlet-name>
+    <servlet-class>com.flyaway.controllers.routes.AddRouteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddRoute</servlet-name>
+    <url-pattern>/AddRouteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateRoute</display-name>
+    <servlet-name>UpdateRoute</servlet-name>
+    <servlet-class>com.flyaway.controllers.routes.UpdateRouteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateRoute</servlet-name>
+    <url-pattern>/UpdateRouteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllRoutesServlet</display-name>
+    <servlet-name>GetAllRoutesServlet</servlet-name>
+    <servlet-class>com.flyaway.controllers.routes.GetAllRoutesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllRoutesServlet</servlet-name>
+    <url-pattern>/GetAllRoutesServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!--Source Servlets-->
+  <servlet>
+    <description></description>
+    <display-name>DeleteSource</display-name>
+    <servlet-name>DeleteSource</servlet-name>
+    <servlet-class>com.flyaway.controllers.sources.DeleteSource</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteSource</servlet-name>
+    <url-pattern>/DeleteSource</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddSource</display-name>
+    <servlet-name>AddSource</servlet-name>
+    <servlet-class>com.flyaway.controllers.sources.AddSource</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddSource</servlet-name>
+    <url-pattern>/AddSource</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateSource</display-name>
+    <servlet-name>UpdateSource</servlet-name>
+    <servlet-class>com.flyaway.controllers.sources.UpdateSource</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateSource</servlet-name>
+    <url-pattern>/UpdateSource</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllSources</display-name>
+    <servlet-name>GetAllSources</servlet-name>
+    <servlet-class>com.flyaway.controllers.sources.GetAllSources</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllSources</servlet-name>
+    <url-pattern>/GetAllSources</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!--Destination Servlets-->
+  <servlet>
+    <description></description>
+    <display-name>DeleteDestination</display-name>
+    <servlet-name>DeleteDestination</servlet-name>
+    <servlet-class>com.flyaway.controllers.destinations.DeleteDestination</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteDestination</servlet-name>
+    <url-pattern>/DeleteDestination</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddDestination</display-name>
+    <servlet-name>AddDestination</servlet-name>
+    <servlet-class>com.flyaway.controllers.destinations.AddDestination</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddDestination</servlet-name>
+    <url-pattern>/AddDestination</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateDestination</display-name>
+    <servlet-name>UpdateDestination</servlet-name>
+    <servlet-class>com.flyaway.controllers.destinations.UpdateDestination</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateSource</servlet-name>
+    <url-pattern>/UpdateSource</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllDestinations</display-name>
+    <servlet-name>GetAllDestinations</servlet-name>
+    <servlet-class>com.flyaway.controllers.destinations.GetAllDestinations</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllDestinations</servlet-name>
+    <url-pattern>/GetAllDestinations</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   <servlet>
     <description></description>
     <display-name>ChangePassword</display-name>

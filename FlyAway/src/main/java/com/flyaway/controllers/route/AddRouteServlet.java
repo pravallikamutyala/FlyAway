@@ -1,6 +1,8 @@
 package com.flyaway.controllers.route;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,8 +19,10 @@ public class AddRouteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
+		String src = request.getParameter("src");
+		String dsnt = request.getParameter("dsnt");
 		
-		Route route = new Route(source, destination);
+		Route route = new Route(source, destination, src, dsnt);
 		RouteDao dao = new RouteDaoImpl();
 		Integer id = dao.addRoute(route);
 		if(id > 0) {
@@ -26,6 +30,9 @@ public class AddRouteServlet extends HttpServlet {
 		} else {
 			System.out.println("Route not added");
 		}
+		PrintWriter out = response.getWriter();
+		out.println("Route added Successfully");
+		response.sendRedirect("GetAllRoutesServlet");
 		
 	}
 

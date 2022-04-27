@@ -2,6 +2,7 @@ package com.flyaway.dao;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.persistence.TypedQuery;
 
@@ -63,16 +64,16 @@ public class AirlineDaoImpl implements AirlineDao{
 
 	@Override
 	public Set<Airline> getAllAirlines() {
-		Set<Airline> allStudents = null;
+		Set<Airline> allAirlines = null;
 		// select * from Airlinedata;
-		String hql = "from airlines";
+		String hql = "from Airline";
 		
 		Session session = factory.openSession();
 		TypedQuery<Airline> typedQuery = session.createQuery(hql);
-		allStudents =  new HashSet<Airline>(typedQuery.getResultList());
+		allAirlines =  new HashSet<Airline>(typedQuery.getResultList());
 		
 		session.close();
-		return allStudents;	
+		return allAirlines;	
 	}
 
 }

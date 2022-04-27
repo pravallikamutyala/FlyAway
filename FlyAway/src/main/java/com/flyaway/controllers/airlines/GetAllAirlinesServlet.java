@@ -1,4 +1,4 @@
-package com.flyaway.controllers.airline;
+package com.flyaway.controllers.airlines;
 
 import java.io.IOException;
 import java.util.Set;
@@ -18,14 +18,15 @@ public class GetAllAirlinesServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Set<Airline> allAirlines = new AirlineDaoImpl().getAllAirlines();
+		System.out.println("allAirlines :"+ allAirlines);
 		HttpSession session = request.getSession();
 		if(allAirlines.size() > 0) {
-			session.setAttribute("students", allAirlines);
+			session.setAttribute("airlines", allAirlines);
 		} else {
 			session.setAttribute("msg", "No airline data found");
 		}
 		
-		response.sendRedirect("allAirlines.jsp");
+		response.sendRedirect("html/airline.jsp");
 		
 	}
 

@@ -18,10 +18,12 @@ public class UpdateRouteServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
+		String src = request.getParameter("src");
+		String dsnt = request.getParameter("dsnt");
 		RouteDao dao = new RouteDaoImpl();
-		dao.updateRoute(id, source, destination);
-	
-		response.sendRedirect("routeupdatesuccess.html");
+		dao.updateRoute(id, source, destination, src, dsnt);
+		response.sendRedirect("GetAllRoutesServlet");
+		//response.sendRedirect("html/route/routeupdatesuccess.html");
 
 	}
 

@@ -15,8 +15,13 @@ div {text-align: center;}
 </style>
 </head>
 <body>
+	<div style="text-align:right"><a href='changepassword.html'>
+        <button class="btn">
+            Change Password
+        </button>
+    </a></div>
 	<div class="content">
-		<form action="ValidateUserServlet" method="post">
+		<form action="../ValidateUserServlet" method="post">
 			Enter username : <input type="text" name="uname"/><br/><br/>
 			Enter password : <input type="password" name="password"/><br/><br/>
 			<div><input type="submit" value="Login"/></div>

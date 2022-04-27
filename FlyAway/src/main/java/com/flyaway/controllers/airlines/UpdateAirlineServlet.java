@@ -1,6 +1,8 @@
-package com.flyaway.controllers.airline;
+package com.flyaway.controllers.airlines;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +22,9 @@ public class UpdateAirlineServlet extends HttpServlet {
 		String iata = request.getParameter("iata");
 		AirlineDao dao = new AirlineDaoImpl();
 		dao.updateAirline(id, name, iata);
-	
-		response.sendRedirect("airlineupdatesuccess.html");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('Airline Updated Suceessfully');</script>");
+		response.sendRedirect("GetAllAirlinesServlet");
 
 	}
 

@@ -2,6 +2,7 @@ package com.flyaway.dao;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.persistence.TypedQuery;
 
@@ -31,7 +32,7 @@ public class RouteDaoImpl implements RouteDao{
 	}
 
 	@Override
-	public void updateRoute(int id, String source, String destination) {
+	public void updateRoute(int id, String source, String destination, String src, String dsnt) {
 		Session session = factory.openSession();
 		Transaction txn = session.beginTransaction();
 		
@@ -41,6 +42,8 @@ public class RouteDaoImpl implements RouteDao{
 		// 2. update the object using setter method
 		route.setSource(source);
 		route.setDestination(destination);
+		route.setSrc(src);
+		route.setDsnt(dsnt);
 		System.out.println("After updation : " + route);
 		// 3. send the object back to the DB table
 		session.update(route);
@@ -65,11 +68,11 @@ public class RouteDaoImpl implements RouteDao{
 	public Set<Route> getAllRoutes() {
 		Set<Route> allStudents = null;
 		// select * from Routedata;
-		String hql = "from routes";
+		String hql = "from Route";
 		
 		Session session = factory.openSession();
 		TypedQuery<Route> typedQuery = session.createQuery(hql);
-		allStudents =  new HashSet<Route>(typedQuery.getResultList());
+		allStudents =  (new HashSet<Route>(typedQuery.getResultList()));
 		
 		session.close();
 		return allStudents;	

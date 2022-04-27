@@ -1,4 +1,4 @@
-package com.flyaway.controllers.airline;
+package com.flyaway.controllers.airlines;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,7 +35,7 @@ public class DeleteAirline extends HttpServlet {
 		AirlineDao dao = new AirlineDaoImpl();
 		dao.deleteAirline(id);
 		PrintWriter out = response.getWriter();
-		out.println("Airline Deleted Suceessfully");
+		out.println("<script>alert('Airline Deleted Suceessfully');</script>");
 		response.sendRedirect("GetAllAirlinesServlet");
 	}
 

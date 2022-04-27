@@ -19,8 +19,14 @@ public class Route {
 	@Column(name = "source")
 	private String source;
 	
+	@Column(name = "src")
+	private String src;
+	
 	@Column(name = "destination")
 	private String destination;
+	
+	@Column(name = "dsnt")
+	private String dsnt;
 	
 
 	public Route() {
@@ -28,9 +34,11 @@ public class Route {
 	}
 
 
-	public Route(String source, String destination) {
+	public Route(String source, String destination, String src, String dsnt) {
 		this.source = source;
 		this.destination = destination;
+		this.src = src;
+		this.dsnt = dsnt;
 	}
 
 
@@ -67,6 +75,26 @@ public class Route {
 
 	public void setDestination(String destination) {
 		this.destination = destination;
+	}
+
+
+	public String getSrc() {
+		return src;
+	}
+
+
+	public void setSrc(String src) {
+		this.src = src;
+	}
+
+
+	public String getDsnt() {
+		return dsnt;
+	}
+
+
+	public void setDsnt(String dsnt) {
+		this.dsnt = dsnt;
 	}
 	
 

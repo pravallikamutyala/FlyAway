@@ -2,6 +2,7 @@ package com.flyaway.controllers.route;
 
 import java.io.IOException;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,12 +21,12 @@ public class GetAllRoutesServlet extends HttpServlet {
 		Set<Route> allRoutes = new RouteDaoImpl().getAllRoutes();
 		HttpSession session = request.getSession();
 		if(allRoutes.size() > 0) {
-			session.setAttribute("students", allRoutes);
+			session.setAttribute("routes", allRoutes);
 		} else {
 			session.setAttribute("msg", "No Route data found");
 		}
 		
-		response.sendRedirect("allRoutes.jsp");
+		response.sendRedirect("html/route.jsp");
 		
 	}
 

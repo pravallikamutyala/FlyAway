@@ -1,5 +1,8 @@
 package com.flyaway.dto;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,34 +22,37 @@ public class Flight {
 	@Column(name = "flight_name")
 	private String flight_name;
 	
+	@Column(name = "airline")
+	private String airline;
+	
 	@Column(name = "source")
 	private String source;
 	
 	@Column(name = "destination")
 	private String destination;
 	
-	@Column(name = "arrival_time")
-	private String arrival_time;
+	@Column(name = "date_of_travel")
+	private LocalDate date_of_travel;
 	
-	@Column(name = "departure_time")
-	private String departure_time;
+	@Column(name = "price")
+	private String price;
 	
 	public Flight() {}
 
-	public Flight(int id, String flight_name, String source, String destination, String arrival_time,
-			String departure_time) {
-		this.id = id;
+	public Flight(String flight_name, String airline, String source, String destination, LocalDate date_of_travel,
+			String price) {
 		this.flight_name = flight_name;
+		this.airline = airline;
 		this.source = source;
 		this.destination = destination;
-		this.departure_time = departure_time;
-		this.arrival_time = arrival_time;
+		this.date_of_travel = date_of_travel;
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
 		return "Flight [id=" + id + ", flight_name=" + flight_name + ", source=" + source + ", destination="
-				+ destination + ", arrival_time=" + arrival_time + ", departure_time=" + departure_time + "]";
+				+ destination + ", date_of_travel=" + date_of_travel + ", price=" + price + "]";
 	}
 
 	public int getId() {
@@ -81,20 +87,30 @@ public class Flight {
 		this.destination = destination;
 	}
 
-	public String getArrival_time() {
-		return arrival_time;
+	public String getAirline() {
+		return airline;
 	}
 
-	public void setArrival_time(String arrival_time) {
-		this.arrival_time = arrival_time;
+	public void setAirline(String airline) {
+		this.airline = airline;
 	}
 
-	public String getDeparture_time() {
-		return departure_time;
+	public LocalDate getDate_of_travel() {
+		return date_of_travel;
 	}
 
-	public void setDeparture_time(String departure_time) {
-		this.departure_time = departure_time;
+	public void setDate_of_travel(LocalDate date_of_travel) {
+		this.date_of_travel = date_of_travel;
 	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+
 
 }

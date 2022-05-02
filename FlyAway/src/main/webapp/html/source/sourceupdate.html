@@ -2,9 +2,28 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Update Source</title>
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 100px;
+  border :1px;
+}
+
+div {text-align: center;}
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 </head>
 <body>
+	<div style="text-align:right"><a href='changepassword.html'>
+        <button class="btn">
+            Change Password
+        </button>
+    </a></div>
+    <div class="content">
 	<h2>Provide details of product to be updated</h2>
 	<form action="../../UpdateSource" method="post">
 		Id: <input type="text" name="id"><br/>
@@ -12,5 +31,8 @@
 		Source Short Name: <input type="text" name="src"><br/>
 		<input type="submit" value="Update Source"/>
 	</form>
+	</div>
+	<br><br>
+	<div style="text-align: center;"><h4>Developer: Pravallika </h4></div>
 </body>
 </html>

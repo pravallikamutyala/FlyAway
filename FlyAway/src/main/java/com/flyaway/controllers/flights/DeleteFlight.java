@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.flyaway.dao.AirlineDao;
-import com.flyaway.dao.AirlineDaoImpl;
+import com.flyaway.dao.FlightDao;
+import com.flyaway.dao.FlightDaoImpl;
 
 /**
- * Servlet implementation class DeleteAirline
+ * Servlet implementation class DeleteFlight
  */
 public class DeleteFlight extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,11 +32,11 @@ public class DeleteFlight extends HttpServlet {
 		// TODO Auto-generated method stub
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		AirlineDao dao = new AirlineDaoImpl();
-		dao.deleteAirline(id);
+		FlightDao dao = new FlightDaoImpl();
+		dao.deleteFlight(id);
 		PrintWriter out = response.getWriter();
-		out.println("<script>alert('Airline Deleted Suceessfully');</script>");
-		response.sendRedirect("GetAllAirlinesServlet");
+		response.sendRedirect("GetAllFlights");
+		out.println("<script>alert('Flight Deleted Suceessfully');</script>");
 	}
 
 	/**

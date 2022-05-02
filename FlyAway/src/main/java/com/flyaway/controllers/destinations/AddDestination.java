@@ -30,7 +30,7 @@ public class AddDestination extends HttpServlet {
 		}
 		PrintWriter out = response.getWriter();
 		out.println("Destination added Successfully");
-		response.sendRedirect("GetAllDestinationsServlet");
+		response.sendRedirect("GetAllDestinations");
 		
 	}
 

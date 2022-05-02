@@ -1,5 +1,7 @@
-<%@page import="com.flyaway.dto.Route"%>
-<%@page import="com.flyaway.dao.RouteDaoImpl"%>
+<%@page import="com.flyaway.dto.Destination"%>
+<%@page import="com.flyaway.dao.DestinationDaoImpl"%>
+<%@page import="com.flyaway.dao.SourceDaoImpl"%>
+<%@page import="com.flyaway.dto.Source"%>
 <%@page import="com.flyaway.dto.Airline"%>
 <%@page import="com.flyaway.dao.AirlineDaoImpl"%>
 <%@page import="java.util.Set"%>
@@ -9,10 +11,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Flight</title>
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 100px;
+  border :1px;
+}
+
+div {text-align: center;}
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 </head>
 <body>
-	<form action="AddAirlineServlet" method="post">
+	<div style="text-align:right"><a href='changepassword.html'>
+        <button class="btn">
+            Change Password
+        </button>
+    </a></div>
+    <div class="content">
+    <h2>Provide details of flight</h2>
+	<form action="../../AddFlight" method="post">
 		Airline Name: 
 		<select name="airline" id="airline">
   		<%
@@ -24,27 +46,37 @@
 		}
 		%>
   		</select><br>
+  		Flight Name:
+		<input type="text" name="flight_name"/><br>
 		Source: 
 		<select name="source" id="source">
   		<%
 		//session.getAttributeNames()
-		Set<Route> allRoutes = new RouteDaoImpl().getAllRoutes();
-		for(Route route : allRoutes){
-			out.println("<option value='"+route.getSource()+"'>"+route.getSource()+"</option>");
+		Set<Source> allSources = new SourceDaoImpl().getAllSources();
+		for(Source source : allSources){
+			out.println("<option value='"+source.getSource()+"'>"+source.getSource()+"</option>");
 			
 		}
 		%>
 		</select><br>
 		Destination: 
-		<select name="source" id="source">
+		<select name="destination" id="destination">
   		<%
 		//session.getAttributeNames()
-		for(Route route : allRoutes){
-			out.println("<option value='"+route.getDestination()+"'>"+route.getDestination()+"</option>");
-			
+		Set<Destination> allDestinations = new DestinationDaoImpl().getAllDestinations();
+		for(Destination destination : allDestinations){
+			out.println("<option value='"+destination.getDestination()+"'>"+destination.getDestination()+"</option>");	
 		}
 		%>
 		</select><br>
+		Date of Travel:
+		<input type="time" name="time"/><br>
+		Price:
+		<input type="text" name="price"/><br>
+		<input type="submit" value="Add Flight"/>
 	</form>
+	</div>
+	<br><br>
+	<div style="text-align: center;"><h4>Developer: Pravallika </h4></div>
 </body>
 </html>

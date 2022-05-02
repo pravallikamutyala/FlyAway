@@ -55,11 +55,20 @@ public class AirlineDaoImpl implements AirlineDao{
 		Session session = factory.openSession();
 		Transaction txn = session.beginTransaction();
 		
-		Airline student = session.get(Airline.class, id);
-		session.delete(student);
+		Airline airline = session.get(Airline.class, id);
+		session.delete(airline);
 		
 		txn.commit();
 		session.close();
+	}
+	
+	@Override
+	public Airline getAirlineById(int id) {
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		
+		Airline airline = session.get(Airline.class, id);
+		return airline;
 	}
 
 	@Override

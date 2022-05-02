@@ -23,17 +23,18 @@ public class AddFlight extends HttpServlet {
 		String airline = request.getParameter("airline");
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
-		LocalDate date_of_travel =  LocalDate.parse(request.getParameter("date_of_travel"));
+		String time =  request.getParameter("time");
 		String price = request.getParameter("price");
 
-		Flight flight = new Flight(flight_name, airline, source, destination, date_of_travel, price);
+		Flight flight = new Flight(flight_name, airline, source, destination, time, price);
 		FlightDao dao = new FlightDaoImpl();
 		Integer id = dao.addFlight(flight);
 		if(id > 0) {
 			System.out.println("Flight added. id is : " + id);
 			PrintWriter out = response.getWriter();
+			
+			response.sendRedirect("GetAllFlights");
 			out.println("<script>alert('Flight Updated Suceessfully');</script>");
-			response.sendRedirect("GetAllFlightsServlet");
 		} else {
 			System.out.println("Flight not added");
 		}

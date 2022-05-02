@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.flyaway.dto.Airline;
 import com.flyaway.dto.Source;
 import com.flyaway.util.HibernateUtil;
 
@@ -61,6 +62,15 @@ public class SourceDaoImpl implements SourceDao{
 		
 		txn.commit();
 		session.close();
+	}
+	
+	@Override
+	public Source getSourceById(int id) {
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		
+		Source source = session.get(Source.class, id);
+		return source;
 	}
 
 	@Override

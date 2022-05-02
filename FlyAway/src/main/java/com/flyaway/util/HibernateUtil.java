@@ -9,7 +9,9 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import com.flyaway.dto.Airline;
-import com.flyaway.dto.Route;
+import com.flyaway.dto.Destination;
+import com.flyaway.dto.Flight;
+import com.flyaway.dto.Source;
 import com.flyaway.dto.User;
 
 //import com.simplilearn.hibernate.webappdemo.dto.Student;
@@ -35,7 +37,9 @@ public class HibernateUtil {
 			configuration.setProperties(properties);
 			configuration.addAnnotatedClass(User.class);
 			configuration.addAnnotatedClass(Airline.class);
-			configuration.addAnnotatedClass(Route.class);
+			configuration.addAnnotatedClass(Source.class);
+			configuration.addAnnotatedClass(Destination.class);
+			configuration.addAnnotatedClass(Flight.class);
 			
 			ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 			factory = configuration.buildSessionFactory(registry);

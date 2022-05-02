@@ -9,4 +9,5 @@ public interface SourceDao {
 	public void updateSource(int id, String source, String src);
 	public void deleteSource(int id);
 	public Set<Source> getAllSources();
+	public Source getSourceById(int id);
 }

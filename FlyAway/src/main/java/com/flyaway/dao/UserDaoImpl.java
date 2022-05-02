@@ -57,5 +57,21 @@ public class UserDaoImpl implements UserDao{
 		
 		return isUserValid;
 	}
+	
+	public void updateAdminPassword(String username, String password) {
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		
+		String hql = "FROM User where userName = :username";
+		TypedQuery<User> query = session.createQuery(hql);
+		query.setParameter("username", username);
+		User user = query.getSingleResult();
+		
+		user.setPassword(password);
+		
+		session.update(user);
+		txn.commit();
+		session.close();
+	}
 
 }

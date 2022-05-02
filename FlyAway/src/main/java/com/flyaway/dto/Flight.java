@@ -1,13 +1,11 @@
 package com.flyaway.dto;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -25,34 +23,34 @@ public class Flight {
 	@Column(name = "airline")
 	private String airline;
 	
-	@Column(name = "source")
+    @Column(name = "source_id")
 	private String source;
 	
 	@Column(name = "destination")
 	private String destination;
 	
-	@Column(name = "date_of_travel")
-	private LocalDate date_of_travel;
+	@Column(name = "time")
+	private String time;
 	
 	@Column(name = "price")
 	private String price;
 	
 	public Flight() {}
 
-	public Flight(String flight_name, String airline, String source, String destination, LocalDate date_of_travel,
+	public Flight(String flight_name, String airline, String source, String destination, String time,
 			String price) {
 		this.flight_name = flight_name;
 		this.airline = airline;
 		this.source = source;
 		this.destination = destination;
-		this.date_of_travel = date_of_travel;
+		this.time = time;
 		this.price = price;
 	}
 
 	@Override
 	public String toString() {
 		return "Flight [id=" + id + ", flight_name=" + flight_name + ", source=" + source + ", destination="
-				+ destination + ", date_of_travel=" + date_of_travel + ", price=" + price + "]";
+				+ destination + ", time=" + time + ", price=" + price + "]";
 	}
 
 	public int getId() {
@@ -95,12 +93,12 @@ public class Flight {
 		this.airline = airline;
 	}
 
-	public LocalDate getDate_of_travel() {
-		return date_of_travel;
+	public String getTime() {
+		return time;
 	}
 
-	public void setDate_of_travel(LocalDate date_of_travel) {
-		this.date_of_travel = date_of_travel;
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	public String getPrice() {

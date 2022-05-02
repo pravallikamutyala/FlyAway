@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.flyaway.dto.Airline;
 import com.flyaway.dto.Destination;
 import com.flyaway.util.HibernateUtil;
 
@@ -60,6 +61,15 @@ public class DestinationDaoImpl implements DestinationDao{
 		
 		txn.commit();
 		session.close();
+	}
+	
+	@Override
+	public Destination getDestinationById(int id) {
+		Session session = factory.openSession();
+		Transaction txn = session.beginTransaction();
+		
+		Destination destination = session.get(Destination.class, id);
+		return destination;
 	}
 
 	@Override

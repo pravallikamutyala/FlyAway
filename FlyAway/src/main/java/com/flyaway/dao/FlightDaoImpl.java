@@ -1,8 +1,9 @@
 package com.flyaway.dao;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -34,7 +35,7 @@ public class FlightDaoImpl implements FlightDao{
 	}
 
 	@Override
-	public void updateFlight(int id, String flight_name, String airline, String source, String destination, LocalDate date_of_travel,
+	public void updateFlight(int id, String flight_name, String airline, String source, String destination, String time,
 			String price) {
 		Session session = factory.openSession();
 		Transaction txn = session.beginTransaction();
@@ -47,7 +48,7 @@ public class FlightDaoImpl implements FlightDao{
 		flight.setAirline(airline);
 		flight.setSource(source);
 		flight.setDestination(destination);
-		flight.setDate_of_travel(date_of_travel);
+		flight.setTime(time);
 		flight.setPrice(price);
 		System.out.println("After updation : " + flight);
 		// 3. send the object back to the DB table
@@ -68,16 +69,30 @@ public class FlightDaoImpl implements FlightDao{
 		txn.commit();
 		session.close();
 	}
+	
+	@Override
+	public List<Flight> searchFlights(String source, String destination) {
+		List<Flight> flights = null;
+		Session session = factory.openSession();
+		
+		String hql = "FROM Flight where source = :source AND destination = : destination";
+		TypedQuery<Flight> query = session.createQuery(hql);
+		query.setParameter("source", source);
+		query.setParameter("destination", destination);
+		flights = query.getResultList();
+		session.close();
+		return flights;
+	}
 
 	@Override
-	public Set<Flight> getAllFlights() {
-		Set<Flight> allFlights = null;
+	public List<Flight> getAllFlights() {
+		List<Flight> allFlights = null;
 		// select * from Flightdata;
 		String hql = "from Flight";
 		
 		Session session = factory.openSession();
 		TypedQuery<Flight> typedQuery = session.createQuery(hql);
-		allFlights =  new HashSet<Flight>(typedQuery.getResultList());
+		allFlights =  (typedQuery.getResultList());
 		
 		session.close();
 		return allFlights;	

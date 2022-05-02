@@ -9,4 +9,5 @@ public interface AirlineDao {
 	public void updateAirline(int id, String name, String iata);
 	public void deleteAirline(int id);
 	public Set<Airline> getAllAirlines();
+	public Airline getAirlineById(int id);
 }

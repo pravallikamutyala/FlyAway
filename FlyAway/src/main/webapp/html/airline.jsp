@@ -8,16 +8,31 @@
 <meta charset="ISO-8859-1">
 <title>Airline</title>
 <style>
+.content {
+  max-width: 500px;
+  margin: auto;
+  padding-top: 30px;
+  border :1px;
+}
+
+
 table, th, td {
   border: 1px solid black;
 }
 </style>
 </head>
 <body>
+	<div style="text-align:right"><a href='changepassword.html'>
+        <button class="btn">
+            Change Password
+        </button>
+    </a></div>
+    <div class="content">
+    <h2>Airlines</h2>
 	<a href="airline/addairline.html"><button>Add Airline</button></a>
 	<a href="airline/airlineupdate.html"><button>Update Airline</button></a>
 	<a href="airline/airlinedelete.html"><button>Delete Airline</button></a><br>
-	<table>
+	<div style="text-align: center;"><table>
 	<thead><td>id</td><td>IATA</td><td>Name</td></thead>
     <%
 		//session.getAttributeNames()
@@ -30,6 +45,9 @@ table, th, td {
 			out.println("</tr>");
 		}
 	%>
-	
+	</table></div>
+	</div>
+	<br><br>
+	<div style="text-align: center;"><h4>Developer: Pravallika </h4></div>
 </body>
 </html>

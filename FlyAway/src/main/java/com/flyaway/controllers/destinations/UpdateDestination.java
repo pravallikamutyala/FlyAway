@@ -20,7 +20,7 @@ public class UpdateDestination extends HttpServlet {
 		String dsnt = request.getParameter("dsnt");
 		DestinationDao dao = new DestinationDaoImpl();
 		dao.updateDestination(id, destination, dsnt);
-		response.sendRedirect("GetAllDestinationsServlet");
+		response.sendRedirect("GetAllDestinations");
 		//response.sendRedirect("html/destination/destinationupdatesuccess.html");
 
 	}

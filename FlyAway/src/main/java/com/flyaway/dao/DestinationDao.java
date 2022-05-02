@@ -9,4 +9,5 @@ public interface DestinationDao {
 	public void updateDestination(int id, String destination, String dsnt);
 	public void deleteDestination(int id);
 	public Set<Destination> getAllDestinations();
+	public Destination getDestinationById(int id);
 }

@@ -36,7 +36,7 @@ public class DeleteDestination extends HttpServlet {
 		dao.deleteDestination(id);
 		PrintWriter out = response.getWriter();
 		out.println("Destination Deleted Suceessfully");
-		response.sendRedirect("GetAllDestinationsServlet");
+		response.sendRedirect("GetAllDestinations");
 	}
 
 	/**
